@@ -9,7 +9,7 @@ software.  In the most basic case, simple modifications in the
 You can read more about [the suckless philosophy](http://suckless.org/philosophy/).
 
 This repository is basically just the [dwm](http://dwm.suckless.org/)
-software with the [config.](./config.h) modified and maybe some little
+software with the [config.h](./config.h) modified and maybe some little
 added patches.
 
 # Requirements
