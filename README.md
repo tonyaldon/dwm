@@ -60,3 +60,16 @@ branch and the `upstream/master` branch.  Do do so, run the commands:
 
     git fetch upstream
     git diff upstream/master master
+
+# patches
+
+## dwm-centeredmaster
+
+```
+curl https://dwm.suckless.org/patches/centeredmaster/dwm-centeredmaster-6.1.diff > dwm-centeredmaster-6.1.diff
+```
+
+```
+patch dwm.c < dwm-centeredmaster-6.1.diff
+```
+

@@ -41,6 +41,8 @@ static const Layout layouts[] = {
   { "[]=",      tile },    /* first entry is default */
   { "><>",      NULL },    /* no layout function means floating behavior */
   { "[M]",      monocle },
+  { "|M|",      centeredmaster }, /* from dwm-centeredmaster-6.1 */
+  { ">M>",      centeredfloatingmaster }, /* from dwm-centeredmaster-6.1 */
 };
 
 /* key definitions */
@@ -85,6 +87,8 @@ static Key keys[] = {
   { MODKEY,                       XK_t,      setlayout,      {.v = &layouts[0]} },
   { MODKEY,                       XK_f,      setlayout,      {.v = &layouts[1]} },
   { MODKEY,                       XK_m,      setlayout,      {.v = &layouts[2]} },
+  { MODKEY,                       XK_c,      setlayout,      {.v = &layouts[3]} }, /* center */
+  { MODKEY,                       XK_g,      setlayout,      {.v = &layouts[4]} }, /* center floating */
   { MODKEY,                       XK_space,  setlayout,      {0} },
   { MODKEY|ShiftMask,             XK_space,  togglefloating, {0} },
   { MODKEY,                       XK_0,      view,           {.ui = ~0 } },
