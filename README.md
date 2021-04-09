@@ -14,12 +14,12 @@ added patches.
 
 # Requirements
 
-In order to build dwm you need the Xlib header files.
+In order to build dwm you need the `Xlib` header files.
 
 # Installation
 
-Edit config.mk to match your local setup (dwm is installed into
-the /usr/local namespace by default).
+Edit `config.mk` to match your local setup (`dwm` is installed into
+the `/usr/local` namespace by default).
 
 Afterwards enter the following command to build and install dwm (if
 necessary as root):
@@ -28,17 +28,18 @@ necessary as root):
 
 # Running dwm
 
-Add the following line to your `.xinitrc` to start `dwm` using
-`startx`:
+The login screen you have when you start your computer is managed by
+the *display manager*.
 
-    exec dwm
+*Ubuntu 18.04* by default uses `gdm3` as *display manager*.  When you
+log into your session, `gdm3` tells the `X` server which *desktop
+session* (and so which *window manager*) to use by reading **appropriate**
+*config files*.
 
-In order to connect dwm to a specific display, make sure that
-the DISPLAY environment variable is set correctly, e.g.:
-
-    DISPLAY=foo.bar:1 exec dwm
-
-(This will start dwm on display :1 of the host foo.bar.)
+Note, that `gdm3` doesn't read the file `.xinitrc` as other programs
+like `startx` would do.  So in order, to use `dwm` *window manager*
+with `gdm3` as *display manager*, you have to put `exec dwm` at the
+end of the config file `.xsessionrc` that will be read by `gdm3`.
 
 # Merge releases and bug fixes from the upstream repository
 
@@ -72,4 +73,3 @@ curl https://dwm.suckless.org/patches/centeredmaster/dwm-centeredmaster-6.1.diff
 ```
 patch dwm.c < dwm-centeredmaster-6.1.diff
 ```
-
