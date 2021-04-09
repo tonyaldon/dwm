@@ -39,9 +39,10 @@ static const int resizehints = 0;    /* 1 means respect size hints in tiled resi
 
 static const Layout layouts[] = {
   /* symbol     arrange function */
+  { ">M>",      centeredfloatingmasteralways }, /* first entry is default */
+  { "=[]",      leftstack },
   { "[M]",      monocle },
-  { "|M|",      centeredmaster }, /* from dwm-centeredmaster-6.1 */
-  { ">M>",      centeredfloatingmasteralways },
+  { "|M|",      centeredmaster },
 };
 
 /* key definitions */
@@ -86,8 +87,7 @@ static Key keys[] = {
   { MODKEY,                       XK_t,      setlayout,      {.v = &layouts[0]} },
   { MODKEY,                       XK_f,      setlayout,      {.v = &layouts[1]} },
   { MODKEY,                       XK_m,      setlayout,      {.v = &layouts[2]} },
-  { MODKEY,                       XK_c,      setlayout,      {.v = &layouts[3]} }, /* center */
-  { MODKEY,                       XK_g,      setlayout,      {.v = &layouts[4]} }, /* center floating */
+  { MODKEY,                       XK_c,      setlayout,      {.v = &layouts[3]} },
   { MODKEY,                       XK_space,  setlayout,      {0} },
   { MODKEY|ShiftMask,             XK_space,  togglefloating, {0} },
   { MODKEY,                       XK_0,      view,           {.ui = ~0 } },
