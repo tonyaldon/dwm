@@ -48,7 +48,7 @@ session* (and so which *window manager*) to use by reading **appropriate**
 Note, that `gdm3` doesn't read the file `.xinitrc` as other programs
 like `startx` would do.  So in order, to use `dwm` *window manager*
 with `gdm3` as *display manager*, you have to put `exec dwm` at the
-end of the config file `.xsessionrc` that will be read by `gdm3`.
+end of the config file `~/.xsessionrc` that will be read by `gdm3`.
 
 # Merge releases and bug fixes from the upstream repository
 
