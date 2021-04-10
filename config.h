@@ -66,28 +66,34 @@ static const char *termcmd[]  = { "st", NULL };
 /* find the keys in /usr/include/X11/keysymdef.h file */
 
 static Key keys[] = {
-  /* modifier                     key        function        argument */
-  { MODKEY,                       XK_p,      spawn,          {.v = dmenucmd } },
-  { MODKEY|ShiftMask,             XK_Return, spawn,          {.v = termcmd } },
-  { MODKEY,                       XK_F1,     spawn,          SHCMD("emacsclient -nc") },
-  { MODKEY,                       XK_j,      focusstack,     {.i = +1 } },
-  { MODKEY,                       XK_k,      focusstack,     {.i = -1 } },
-  { MODKEY,                       XK_i,      incnmaster,     {.i = +1 } },
-  { MODKEY,                       XK_d,      incnmaster,     {.i = -1 } },
-  { MODKEY,                       XK_h,      setmfact,       {.f = -0.05} },
-  { MODKEY,                       XK_l,      setmfact,       {.f = +0.05} },
-  { MODKEY,                       XK_Return, zoom,           {0} },
-  { MODKEY,                       XK_Tab,    view,           {0} },
-  { MODKEY|ShiftMask,             XK_c,      killclient,     {0} },
-  { MODKEY,                       XK_u,      setlayout,      {.v = &layouts[0]} },
-  { MODKEY,                       XK_f,      setlayout,      {.v = &layouts[1]} },
-  { MODKEY,                       XK_m,      setlayout,      {.v = &layouts[2]} },
-  { MODKEY,                       XK_c,      setlayout,      {.v = &layouts[3]} },
-  { MODKEY,                       XK_space,  setlayout,      {0} },
-  { MODKEY|ShiftMask,             XK_space,  togglefloating, {0} },
-  { MODKEY,                       XK_0,      view,           {.ui = ~0 } },
-  { MODKEY|ShiftMask,             XK_0,      tag,            {.ui = ~0 } },
-  { MODKEY|ShiftMask,             XK_q,      quit,           {0} },
+  /* modifier              key        function        argument */
+  /* TODO: add binding for inkscape, kdenlive, and taking screenshots */
+
+  { MODKEY,             XK_0,       spawn,          {.v = dmenucmd } },
+  { MODKEY,             XK_1,       spawn,          SHCMD("chromium-browser")},
+  { MODKEY,             XK_2,       spawn,          SHCMD("emacsclient -nc") },
+  { MODKEY,             XK_3,       spawn,          {.v = termcmd } },
+
+  { 0,                  XK_F8,      view,           {.ui = 1 << 0} },
+  { MODKEY,             XK_F8,      tag,            {.ui = 1 << 0} },
+  { 0,                  XK_F9,      view,           {.ui = 1 << 1} },
+  { MODKEY,             XK_F9,      tag,            {.ui = 1 << 1} },
+  { 0,                  XK_F10,     view,           {.ui = ~0 } },
+
+  { MODKEY,             XK_c,       setlayout,      {.v = &layouts[0]} },  /* centeredfloatingmasteralways layout */
+  { MODKEY,             XK_t,       setlayout,      {.v = &layouts[1]} },  /* monocle layout */
+  { MODKEY,             XK_l,       setlayout,      {.v = &layouts[2]} },  /* leftstack layout */
+
+  { MODKEY,             XK_d,       focusstack,     {.i = +1 } },
+  { MODKEY,             XK_Tab,     zoom,           {0} },
+
+  { MODKEY,             XK_plus,    setmfact,       {.f = +0.05} },
+  { MODKEY,             XK_minus,   setmfact,       {.f = -0.05} },
+  { MODKEY|ShiftMask,   XK_plus,    incnmaster,     {.i = +1 } },
+  { MODKEY|ShiftMask,   XK_minus,   incnmaster,     {.i = -1 } },
+
+  { MODKEY,             XK_q,       killclient,     {0} },
+  { MODKEY|ShiftMask,   XK_q,       quit,           {0} },
 };
 
 /* button definitions */
