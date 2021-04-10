@@ -12,11 +12,20 @@ This repository is basically just the [dwm](http://dwm.suckless.org/)
 software with the [config.h](./config.h) modified and maybe some little
 added patches.
 
-# Requirements
+# Key bindings and workflow
 
-In order to build dwm you need the `Xlib` header files.
+I tried to have a small set of key bindings, that fits a minimal
+workflow following this paradigm:
+1. one centered floating window to do the job (FOCUS WORK),
+2. two side by side windows (HUNTING WORK),
+3. two side by side windows (WEBDEV WORK),
+4. two side by side windows (VIDEOMAKING WORK),
+5. if you need more than 2 windows open in the same monitor, maybe
+you're doing something the wrong way.
 
 # Installation
+
+In order to build dwm you need the `Xlib` header files.
 
 Edit `config.mk` to match your local setup (`dwm` is installed into
 the `/usr/local` namespace by default).
