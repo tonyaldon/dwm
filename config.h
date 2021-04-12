@@ -43,9 +43,8 @@ static const int resizehints = 0;    /* 1 means respect size hints in tiled resi
 static const Layout layouts[] = {
   /* symbol     arrange function */
   { ">M>",      centeredfloatingmasteralways }, /* first entry is default */
-  { "[M]",      monocle },
   { "=[]",      leftstack },
-  { NULL,       NULL },  /* needed to use cyclelayout function */
+  { "[M]",      monocle },
 };
 
 /* key definitions */
@@ -70,31 +69,31 @@ static Key keys[] = {
   /* modifier              key        function        argument */
   /* TODO: add binding for inkscape, kdenlive, and taking screenshots */
 
-  { MODKEY,             XK_0,       spawn,          {.v = dmenucmd } },
-  { MODKEY,             XK_1,       spawn,          SHCMD("chromium-browser")},
-  { MODKEY,             XK_2,       spawn,          SHCMD("emacsclient -nc") },
-  { MODKEY,             XK_3,       spawn,          {.v = termcmd } },
+  { MODKEY,             XK_0,       spawn,              {.v = dmenucmd } },
+  { MODKEY,             XK_1,       spawn,              SHCMD("chromium-browser")},
+  { MODKEY,             XK_2,       spawn,              SHCMD("emacsclient -nc") },
+  { MODKEY,             XK_3,       spawn,              {.v = termcmd } },
 
-  { 0,                  XK_F8,      view,           {.ui = 1 << 0} },
-  { MODKEY,             XK_F8,      tag,            {.ui = 1 << 0} },
-  { 0,                  XK_F9,      view,           {.ui = 1 << 1} },
-  { MODKEY,             XK_F9,      tag,            {.ui = 1 << 1} },
-  { 0,                  XK_F10,     view,           {.ui = ~0 } },
+  { 0,                  XK_F8,      view,               {.ui = 1 << 0} },
+  { MODKEY,             XK_F8,      tag,                {.ui = 1 << 0} },
+  { 0,                  XK_F9,      view,               {.ui = 1 << 1} },
+  { MODKEY,             XK_F9,      tag,                {.ui = 1 << 1} },
+  { 0,                  XK_F10,     viewallleftstack,   {0} },
 
-  { MODKEY,             XK_c,       setlayout,      {.v = &layouts[0]} },  /* centeredfloatingmasteralways layout */
-  { MODKEY,             XK_t,       setlayout,      {.v = &layouts[1]} },  /* monocle layout */
-  { MODKEY,             XK_l,       setlayout,      {.v = &layouts[2]} },  /* leftstack layout */
+  { MODKEY,             XK_c,       setlayout,          {.v = &layouts[0]} },  /* centeredfloatingmasteralways layout */
+  { MODKEY,             XK_l,       setlayout,          {.v = &layouts[1]} },  /* leftstack layout */
+  { MODKEY,             XK_t,       setlayout,          {.v = &layouts[2]} },  /* monocle layout */
 
-  { MODKEY,             XK_d,       focusstack,     {.i = +1 } },
-  { MODKEY,             XK_Tab,     zoom,           {0} },
+  { MODKEY,             XK_d,       focusstack,         {.i = +1 } },
+  { MODKEY,             XK_Tab,     zoom,               {0} },
 
-  { MODKEY,             XK_plus,    setmfact,       {.f = +0.05} },
-  { MODKEY,             XK_minus,   setmfact,       {.f = -0.05} },
-  { MODKEY|ShiftMask,   XK_plus,    incnmaster,     {.i = +1 } },
-  { MODKEY|ShiftMask,   XK_minus,   incnmaster,     {.i = -1 } },
+  { MODKEY,             XK_plus,    setmfact,           {.f = +0.05} },
+  { MODKEY,             XK_minus,   setmfact,           {.f = -0.05} },
+  { MODKEY|ShiftMask,   XK_plus,    incnmaster,         {.i = +1 } },
+  { MODKEY|ShiftMask,   XK_minus,   incnmaster,         {.i = -1 } },
 
-  { MODKEY,             XK_q,       killclient,     {0} },
-  { MODKEY|ShiftMask,   XK_q,       quit,           {0} },
+  { MODKEY,             XK_q,       killclient,         {0} },
+  { MODKEY|ShiftMask,   XK_q,       quit,               {0} },
 };
 
 /* button definitions */

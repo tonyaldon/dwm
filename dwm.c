@@ -237,6 +237,7 @@ static void zoom(const Arg *arg);
 static void centeredfloatingmasteralways(Monitor *m);
 static void leftstack(Monitor *);
 /* static void cyclelayout(const Arg *arg); */
+static void viewallleftstack(const Arg *arg);
 
 /* variables */
 static const char broken[] = "broken";
@@ -2267,3 +2268,13 @@ leftstack(Monitor *m)
 /* 			setlayout(&((Arg) { .v = &layouts[LENGTH(layouts) - 2] })); */
 /* 	} */
 /* } */
+
+void
+viewallleftstack(const Arg *arg) {
+	/* view all tags with leftstack layout */
+  /* we assume leftstack layout is the second element of layouts array */
+  Layout *l = (Layout *)layouts;
+	Layout *lstack_layout = l + 1;
+	setlayout(&((Arg) { .v = lstack_layout }));
+  view(&((Arg) { .ui = ~0 }));
+}
